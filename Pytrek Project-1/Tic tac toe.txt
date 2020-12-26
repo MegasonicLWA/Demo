@@ -1,0 +1,88 @@
+TheBoard = {'1':' ','2':' ','3':' ',
+            '4':' ','5':' ','6':' ',
+            '7':' ','8':' ','9':' '}
+
+board_keys = []
+
+for key in TheBoard:
+    board_keys.append(key)
+
+def printBoard(Theboard):
+    print(Theboard['1']+'|'+Theboard['2']+'|'+Theboard['3'])
+    print('-----')
+    print(Theboard['4']+'|'+Theboard['5']+'|'+Theboard['6'])
+    print('-----')
+    print(Theboard['7']+'|'+Theboard['8']+'|'+Theboard['9'])
+
+def game():
+
+    n='X'
+    count=0
+
+    for i in range(10):
+        printBoard(TheBoard)
+        print("Player."+ n)
+
+        move=input()        
+
+        if TheBoard[move]==' ':
+            TheBoard[move]=n
+            count+= 1
+        else:
+            print("That place is already filled.\nMove to which place?")
+            continue
+        if count>=5:
+            if TheBoard['7']==TheBoard['8']==TheBoard['9']!=' ': 
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print("  "+ n +" won")                
+                break
+            elif TheBoard['4']==TheBoard['5']==TheBoard['6']!=' ':
+                printBoard(theBoard)
+                print("Game Over.\n")                
+                print("  "+ n +" won")
+                break
+            elif TheBoard['1']==TheBoard['2']==TheBoard['3']!=' ': 
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" "+ n +" won")
+                break
+            elif TheBoard['1']==TheBoard['4']==TheBoard['7']!=' ': 
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" "+ n +" won")
+                break
+            elif TheBoard['2']==TheBoard['5']==TheBoard['8']!=' ': 
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" " + n + " won")
+                break
+            elif TheBoard['3']==TheBoard['6']==TheBoard['9']!=' ': 
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" "+ n +" won")
+                break 
+            elif TheBoard['7']==TheBoard['5']==TheBoard['3']!=' ':
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" "+ n +" won")
+                break
+            elif TheBoard['1']==TheBoard['5']==TheBoard['9']!=' ':
+                printBoard(TheBoard)
+                print("Game Over.\n")                
+                print(" "+ n +" won")
+                break 
+
+      
+        if count==9:
+            print("Game Over.\n")                
+            print("It's a Tie")
+
+        if n=='X':
+            n='O'
+        else:
+            n='X' 
+        
+    game()
+
+game()
